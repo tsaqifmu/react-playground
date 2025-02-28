@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@/components/ui/button';
+import { Search, Mail, Github } from 'lucide-react'; // Import ikon
 
 const meta: Meta<typeof Button> = {
   title: 'UI/Button',
@@ -8,7 +9,6 @@ const meta: Meta<typeof Button> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  // Tambahkan argTypes untuk membuat kontrol UI untuk props size
   argTypes: {
     variant: {
       control: 'select',
@@ -20,10 +20,19 @@ const meta: Meta<typeof Button> = {
         'ghost',
         'link',
       ],
+      description: 'Variasi gaya button',
     },
     size: {
       control: 'select',
       options: ['default', 'sm', 'lg', 'icon'],
+      description: 'Ukuran button',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Menonaktifkan button',
+    },
+    asChild: {
+      control: false, // Menyembunyikan dari kontrol karena lebih cocok sebagai contoh kode
     },
   },
 };
@@ -35,7 +44,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     variant: 'default',
-    size: 'default', // Tambahkan prop size
+    size: 'default',
     children: 'Button',
   },
 };
@@ -44,7 +53,7 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
     size: 'default',
-    children: 'Secondary Button',
+    children: 'Secondary',
   },
 };
 
@@ -52,16 +61,40 @@ export const Destructive: Story = {
   args: {
     variant: 'destructive',
     size: 'default',
-    children: 'Destructive Button',
+    children: 'Destructive',
   },
 };
 
-// Tambahkan stories khusus untuk ukuran
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    size: 'default',
+    children: 'Outline',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    size: 'default',
+    children: 'Ghost',
+  },
+};
+
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    size: 'default',
+    children: 'Link Button',
+  },
+};
+
+// Menambahkan stories untuk ukuran
 export const Small: Story = {
   args: {
     variant: 'default',
     size: 'sm',
-    children: 'Small Button',
+    children: 'Small',
   },
 };
 
@@ -69,28 +102,6 @@ export const Large: Story = {
   args: {
     variant: 'default',
     size: 'lg',
-    children: 'Large Button',
+    children: 'Large',
   },
 };
-
-export const IconButton: Story = {
-  args: {
-    variant: 'default',
-    size: 'icon',
-    children: '🔍', // Contoh dengan emoji, lebih baik gunakan komponen ikon sebenarnya
-  },
-};
-
-// // Anda juga bisa membuat stories yang menunjukkan semua kombinasi
-// export const AllSizes: Story = {
-//   render: () => (
-//     <div className='flex flex-col gap-4'>
-//       <div className='flex items-center gap-4'>
-//         <Button size='sm'>Small</Button>
-//         <Button size='default'>Default</Button>
-//         <Button size='lg'>Large</Button>
-//         <Button size='icon'>🔍</Button>
-//       </div>
-//     </div>
-//   ),
-// };
