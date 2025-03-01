@@ -1,6 +1,7 @@
 import { Button } from './components/ui/button';
 
 function App() {
+  console.error('hahahha');
   return (
     <>
       <div>halo bang, nama saya </div>
