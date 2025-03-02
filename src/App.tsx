@@ -1,16 +1,17 @@
-import { Button } from './components/ui/button';
+import { Header } from './stories/Header';
 
 function App() {
   console.error('hahahha');
   return (
     <>
-      <div>halo bang, nama saya </div>
-      <Button size="icon" variant="default">
-        🔍
-      </Button>
-      <Button size="sm" variant="destructive">
-        Jakaaaaaa
-      </Button>
+      <Header
+        onCreateAccount={() => {}}
+        onLogin={() => {}}
+        onLogout={() => {}}
+        user={{
+          name: 'Jane Doe',
+        }}
+      />
     </>
   );
 }
